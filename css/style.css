@@ -1,0 +1,281 @@
+body {
+	font-family: "微软雅黑",Helvetica,"Heiti SC",sans-serif;
+	font-size: 14px;
+	background: #fff;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
+	font-family: "微软雅黑",Helvetica,"Heiti SC",sans-serif;
+}
+hr {
+	border-bottom: 1px #aaa solid;
+}
+hr.pink {
+	border: none;
+	border-bottom: 5px #dc3c70 solid;
+	margin: 0;
+}
+div.center, p.center, img.center, table.center {
+margin-left: auto !important;
+margin-right: auto !important;
+float: none !important;
+display: block;
+}
+.pt {
+	padding-top: 1em;
+}
+.mt {
+	margin-top: 2em;
+}
+.mt-20 {
+	margin-top: 20px;
+}
+.mb {
+	margin-bottom: 2em;
+}
+.mb-20 {
+	margin-bottom: 20px;
+}
+.gray-border {
+	border: gray 1px solid;
+}
+.clear {
+	clear: both;
+	width: 0;
+	height: 0;
+	padding: 0 !important;
+	margin: 0 !important
+}
+.page {
+	max-width: 1000px;
+	padding: 4em 5em;
+	box-shadow: 5px 5px 15px #888;
+	border: #ddd 1px solid;
+}
+
+/* login */
+.login-page .sidebar-footer, .login-page #topBar, .login-page .navbar-toggle, .login-page #pet-menu-collapse, .login-page .middle-hr
+{
+	display: none !important;
+	visibility: hidden !important;
+}
+
+#login-frame {
+	margin-top: 80px;
+	padding: 10px 0 30px 0;
+	color: #333;
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 1em;
+}
+.login-page #content {
+	background: url(../imgs/login-bg.png) bottom right no-repeat #e1eaf1;
+	max-width: 100%;
+}
+.input-group-addon.validate {
+	padding: 0;
+}
+.input-group-addon.validate img {
+	border-radius: 0 4px 4px 0;
+}
+
+/* table */
+th[class*=sorting]:hover{
+	cursor: pointer;
+}
+/* overall */
+#header{
+	background-color: #00797C;
+	position: relative;
+	border-bottom: 1px #00696c solid;
+}
+#header .middle-hr {
+	border-top: #00696c 1px solid;
+	border-bottom: #00898c 1px solid;
+	margin: 0;
+}
+#page-logo {
+	margin: 0 10px;	
+}
+#csu-logo {
+	float: left;
+}
+#page-title{
+	border: none;
+	color: #fff;
+	margin: 1em 0;
+}
+#page-title .cn{
+	height: 35px;
+}
+#page-title .cn h1{
+	margin: 0;
+	font-size: 28px;
+	margin-top: -2px;
+	line-height: 30px;
+	letter-spacing: 2px;
+
+}
+#page-title .en{
+	height: 20px;
+	font-size: 17px;
+	letter-spacing: 1px;
+	word-spacing: 1px;
+}
+#page-title .en span{
+	padding-left: 3px;
+}
+
+#page-sub-title {
+	background-color: #dc3c70;
+	font-size: 25px;
+	padding: 0 0.5em;
+	margin-right: -31px;
+	/* position: absolute;
+	margin-top: -25px;
+	top: 50%; */
+	line-height: 50px;
+	color: white;
+	box-shadow: 1px 1px 10px #444;
+}
+#content {
+	float: none;
+/* 	padding: 1em; */
+	min-height: 600px;
+	margin: 0 auto;
+	max-width: 1080px;
+}
+#pagePath {
+	line-height: 3em;
+	border-bottom: 1px #aaa solid;
+}
+
+
+nav.navbar {
+	margin-bottom: 0;
+}
+
+nav .navbar-nav.menu li {
+	margin: 0 0.5em;
+}
+
+nav .navbar-nav li.active {
+	border-bottom: #eee 2px solid;
+}
+
+
+nav .navbar-nav a {
+	height: 2em;
+	line-height: 2em;
+	padding: 0 1em;
+	color: #fff;
+}
+
+nav .navbar-nav a:hover {
+	background: rgba(255,255,255,0.1);
+}
+
+.navbar-nav.navbar-right.menu {
+	margin-right: 2em;
+}
+
+#pet-menu-collapse.in, #pet-menu-collapse.collapsing {
+	border: none;
+}
+.navbar-toggle {
+	margin: 8px 0 8px 15px;
+}
+
+.navbar-toggle .icon-bar {
+	background-color: #fff;
+	box-shadow: inset 1px 1px 2px #999;
+}
+
+.navbar .nav .open>a, .navbar .nav .open>a:hover, .navbar .nav .open>a:focus {
+	background-color: rgba(255,255,255,0.1);
+}
+
+.navbar-nav>li>.dropdown-menu {
+	margin-top: 2px;
+	background-color: rgba(220, 60, 112, 0.8);/* 0, 121, 124 */
+}
+
+.navbar-nav>li>.dropdown-menu a:hover {
+	color: #fff;
+	background-color: rgba(20, 20, 20, 0.1);
+}
+
+#footer {
+	color: #555;
+}
+
+#footer .container>div {
+	margin-bottom: 1em;
+}
+
+#footer blockquote {
+	padding-top: 0;
+}
+
+/* 
+#footer .contact {
+	padding-left: 1em;
+	border-left: 1px #aaa solid;
+} */
+
+.widget .widget-title {
+	font: 300 20px "微软雅黑",Helvetica,"Heiti SC",sans-serif;
+	margin: 0 0 10px;
+	color: #39727D;
+}
+.widget ol, .widget ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.widget li {
+	list-style: none;
+	padding: 5px 0;
+}
+#linkcat li {
+	display: inline-block;
+	margin-right: 1em;
+}
+.site-info {
+	margin: 30px auto;
+	max-width: 1040px;
+	width: 100%;
+	color: #999;
+}
+
+/*Patient*/
+#patientModal .form-group span {
+	display: block;
+	margin-top: 7px;
+}
+
+/* record */
+#patientBasicInfo span {
+	float: left;
+	width: 25%;
+	padding-left: 2em;
+}
+#patientBasicInfo {
+	border-bottom: 1px solid #ddd;
+	padding: 0.5em 0;
+}
+.topFixed {
+	position: fixed;
+	top: 0;
+	z-index:99999;
+	background-color: #fff;
+}
+.page pre {
+	font-size: 14px;
+	line-height: 2em;
+}
+/* #patientInfo>div {
+	float: left;
+	padding-right: 6em;
+}
+#patientInfo>div:last-child {
+	padding-right: 0;
+} */
