@@ -2,6 +2,7 @@
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
 	<title>Yyt's resume</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -49,6 +50,52 @@
 		$('a[href=#]').click(function(event) {
 			event.preventDefault();
 		});
+		$(window).resize(function() {
+			$("#main").css('margin-top', slideTop * $(window).height() + 'px');
+		});
+		if(navigator.userAgent.match(/mobile/i)){/*移动端事件*/
+			/*$('#main').bind('touchstart', function(event){
+				event.preventDefault();
+			    if (!event.touches.length || event.touches.length > 1) return;
+			    alert('1');
+			    var touch = event.touches[0];
+			    startY = touch.pageY;
+			    spirit = document.createElement("div");
+			    canvas.appendChild(spirit);
+			    spirit.className = "spirit";
+			    spirit.style.left = startX + "px";
+			    spirit.style.top = startY + "px";
+			});*/
+			var startY;
+			window.addEventListener('touchstart', function (event) {
+				if (!event.touches.length || event.touches.length > 1 || $("#main").is(':animated')) return;
+				event.preventDefault();
+			    var touch = event.touches[0];
+			    startY = touch.pageY;
+			});
+			var y;
+			window.addEventListener('touchmove', function (event) {
+				if (!event.touches.length || event.touches.length > 1 || $("#main").is(':animated')) return;
+				event.preventDefault();
+				/*alert(event.touches.length);*/
+			    var touch = event.touches[0];
+			    y = touch.pageY - startY;
+			    $("#main").css('margin-top', slideTop * $(window).height() + y + 'px');
+			});
+			window.addEventListener('touchend', function (event) {
+				event.preventDefault();
+				if (Math.abs(y)<30 || slideTop == 0 && y > 0) {
+					scrollToPage(slideTop);
+					return;
+				}
+			    scrollToPage(slideTop + y/Math.abs(y));
+			    y = 0;
+			    startY = 0;
+			});
+			return;
+		}
+
+		/*PC端事件*/
 		$("section.slide").each(function(index, el) {
 			$('#progress-nav ul').append('<li><a href="#" data-page="' + index + '"><span class="dot"></span><span class="hover-text">' + $(this).attr('data-title') + '</span></a></li>');
 		});
@@ -66,9 +113,7 @@
 			event.stopPropagation();
 		});
 
-		$(window).resize(function() {
-			$("#main").css('margin-top', slideTop * $(window).height() + 'px');
-		});
+		
 	});
 
 	function scrollToPage(pageNum) {
