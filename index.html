@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Yyt's resume</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -11,6 +13,75 @@
     <![endif]-->
 </head>
 <body>
-	yyt's resume
+	<nav id="progress-nav" class="hidden-xs">
+		<ul>
+		</ul>
+	</nav>
+	
+	<div id="main">
+		<section class="slide" data-title="首页">
+			1
+			<p></p>
+			<p></p>
+				
+		</section>
+		<section class="slide" data-title="简介">
+			2
+		</section>
+		<section class="slide" data-title="技能">
+			3
+		</section>
+		<section class="slide" data-title="优势">
+			4
+		</section>
+		<section class="slide" data-title="作品">
+			5
+		</section>
+	</div>
+
+	<script type="text/javascript" src='js/jquery-1.10.2.min.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/jquery.mousewheel.min.js'></script>
+	<script type="text/javascript">
+	var slideTop = 0;
+	var maxTop = $('section.slide').length - 1;
+	window.$ && $(function() {
+		$('a[href=#]').click(function(event) {
+			event.preventDefault();
+		});
+		$("section.slide").each(function(index, el) {
+			$('#progress-nav ul').append('<li><a href="#" data-page="' + index + '"><span class="dot"></span><span class="hover-text">' + $(this).attr('data-title') + '</span></a></li>');
+		});
+		$('#progress-nav a').click(function(event) {
+			/* Act on the event */
+			event.preventDefault();
+			scrollToPage(-Number($(this).attr('data-page')));
+		});
+		$('#progress-nav').css('margin-top', -(maxTop + 1) * 1.5 / 2 + 'em');
+		$('#progress-nav ul li:eq(0)').addClass('active');
+		$('section.slide').bind('mousewheel', function(event, delta) {
+			/* Act on the event */
+			event.preventDefault();
+			scrollToPage(slideTop + delta);
+			event.stopPropagation();
+		});
+
+		$(window).resize(function() {
+			$("#main").css('margin-top', slideTop * $(window).height() + 'px');
+		});
+	});
+
+	function scrollToPage(pageNum) {
+		if (!$("#main").is(':animated')) {
+			slideTop = pageNum;
+			if (slideTop > 0) slideTop = 0;
+			if (slideTop < -maxTop) slideTop = -maxTop;
+			$("#main").animate({
+				'margin-top': slideTop * $(window).height() + 'px'
+			}, '1s');
+			$('#progress-nav ul li').removeClass('active').eq(-slideTop).addClass('active');
+		}
+	}
+	</script>
 </body>
 </html>
