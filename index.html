@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
-	<title>Yyt's resume</title>
+	<title>上海万科首届微信房展会</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -18,13 +18,16 @@
 		<ul>
 		</ul>
 	</nav>
-	
+	<a href="#" id="bgPlayer" class="player-button">
+		<!-- <audio src="./imgs/bg.mp3" autoplay loop></audio> -->
+		<EMBED src="imgs/bg.mp3" width=310 height=35 type=audio/x-pn-realaudio-plugin controls="ControlPanel,StatusBar" autostart="true" loop="true"/>
+	</a>
 	<div id="main">
 		<section class="slide" data-title="首页">
 			1
 			<p></p>
 			<p></p>
-				
+			<a class="btn btn-info" href="http://www.baidu.com">click</a>
 		</section>
 		<section class="slide" data-title="简介">
 			2
@@ -43,90 +46,6 @@
 	<script type="text/javascript" src='js/jquery-1.10.2.min.js'></script>
 	<script type="text/javascript" src='js/bootstrap.min.js'></script>
 	<script type="text/javascript" src='js/jquery.mousewheel.min.js'></script>
-	<script type="text/javascript">
-	var slideTop = 0;
-	var maxTop = $('section.slide').length - 1;
-	window.$ && $(function() {
-		$('a[href=#]').click(function(event) {
-			event.preventDefault();
-		});
-		$(window).resize(function() {
-			$("#main").css('margin-top', slideTop * $(window).height() + 'px');
-		});
-		if(navigator.userAgent.match(/mobile/i)){/*移动端事件*/
-			/*$('#main').bind('touchstart', function(event){
-				event.preventDefault();
-			    if (!event.touches.length || event.touches.length > 1) return;
-			    alert('1');
-			    var touch = event.touches[0];
-			    startY = touch.pageY;
-			    spirit = document.createElement("div");
-			    canvas.appendChild(spirit);
-			    spirit.className = "spirit";
-			    spirit.style.left = startX + "px";
-			    spirit.style.top = startY + "px";
-			});*/
-			var startY;
-			window.addEventListener('touchstart', function (event) {
-				if (!event.touches.length || event.touches.length > 1 || $("#main").is(':animated')) return;
-				event.preventDefault();
-			    var touch = event.touches[0];
-			    startY = touch.pageY;
-			});
-			var y;
-			window.addEventListener('touchmove', function (event) {
-				if (!event.touches.length || event.touches.length > 1 || $("#main").is(':animated')) return;
-				event.preventDefault();
-				/*alert(event.touches.length);*/
-			    var touch = event.touches[0];
-			    y = touch.pageY - startY;
-			    $("#main").css('margin-top', slideTop * $(window).height() + y + 'px');
-			});
-			window.addEventListener('touchend', function (event) {
-				event.preventDefault();
-				if (Math.abs(y)<30 || slideTop == 0 && y > 0) {
-					scrollToPage(slideTop);
-					return;
-				}
-			    scrollToPage(slideTop + y/Math.abs(y));
-			    y = 0;
-			    startY = 0;
-			});
-			return;
-		}
-
-		/*PC端事件*/
-		$("section.slide").each(function(index, el) {
-			$('#progress-nav ul').append('<li><a href="#" data-page="' + index + '"><span class="dot"></span><span class="hover-text">' + $(this).attr('data-title') + '</span></a></li>');
-		});
-		$('#progress-nav a').click(function(event) {
-			/* Act on the event */
-			event.preventDefault();
-			scrollToPage(-Number($(this).attr('data-page')));
-		});
-		$('#progress-nav').css('margin-top', -(maxTop + 1) * 1.5 / 2 + 'em');
-		$('#progress-nav ul li:eq(0)').addClass('active');
-		$('section.slide').bind('mousewheel', function(event, delta) {
-			/* Act on the event */
-			event.preventDefault();
-			scrollToPage(slideTop + delta);
-			event.stopPropagation();
-		});
-
-		
-	});
-
-	function scrollToPage(pageNum) {
-		if (!$("#main").is(':animated')) {
-			slideTop = pageNum;
-			if (slideTop > 0) slideTop = 0;
-			if (slideTop < -maxTop) slideTop = -maxTop;
-			$("#main").animate({
-				'margin-top': slideTop * $(window).height() + 'px'
-			}, '1s');
-			$('#progress-nav ul li').removeClass('active').eq(-slideTop).addClass('active');
-		}
-	}
-	</script>
+	<script type="text/javascript" src="js/wanke.js"></script>
 </body>
 </html>
